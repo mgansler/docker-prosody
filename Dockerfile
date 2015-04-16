@@ -15,4 +15,5 @@ RUN hg clone https://code.google.com/p/prosody-modules/
 VOLUME ["/etc/prosody"]
 VOLUME ["/var/lib/prosody"]
 
+EXPOSE 5222 5269
 CMD [ "prosodyctl", "start" ]
