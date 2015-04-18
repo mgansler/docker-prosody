@@ -3,11 +3,13 @@ MAINTAINER martin@martingansler.de
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN	apt-get update \
-	&& apt-get install --yes prosody mercurial \
-	&& service prosody stop \
-	&& mkdir /run/prosody \
-	&& chown prosody:adm /run/prosody
+COPY assets/ /assets
+RUN 	echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a /etc/apt/sources.list \
+	&& apt-key add /assets/prosody-debian-packages.key \
+	&& apt-get update \
+	&& apt-get install --yes ca-certificates prosody \
+	&& apt-get install --yes --no-install-recommends mercurial \
+	&& service prosody stop
     
 WORKDIR /usr/lib/
 RUN hg clone https://code.google.com/p/prosody-modules/
