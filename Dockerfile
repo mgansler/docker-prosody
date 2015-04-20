@@ -13,6 +13,8 @@ RUN 	echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a
     
 WORKDIR /usr/lib/
 RUN hg clone https://code.google.com/p/prosody-modules/
+WORKDIR /usr/lib/prosody-modules
+RUN hg backout -r ad6694f7b13c
 
 VOLUME ["/etc/prosody"]
 VOLUME ["/var/lib/prosody"]
