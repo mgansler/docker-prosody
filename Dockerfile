@@ -9,7 +9,8 @@ RUN 	echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a
 	&& apt-get update \
 	&& apt-get install --yes ca-certificates prosody lua-zlib \
 	&& apt-get install --yes --no-install-recommends mercurial \
-	&& service prosody stop
+	&& service prosody stop \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 WORKDIR /usr/lib/
 RUN hg clone https://code.google.com/p/prosody-modules/
