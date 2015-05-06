@@ -1,8 +1,20 @@
 # Prosody in Docker #
 
 This Docker image with prosody is built ontop the basic Ubuntu image.
-The community module repository of prosody is included.
 
+## Community Modules
+The Community Modules are no longer included in this build.
+If you wish to use community modules, please take a look at [mgansler/docker-prosody-modules](https://github.com/mgansler/docker-prosody-modules)
+
+```YAML
+prosody:
+  ...
+  volumes_from:
+   - modules
+  ...
+modules:
+  image: mgansler/prosody-modules:<tag>
+```
 
 ## Running ##
 
@@ -13,6 +25,7 @@ docker run -d --name prosody -p 5222:5222 -p 5269:5269 <tag>
 ## Ports ##
 
 This image exposes the following ports to the docker host:
+
 * __5222__
 * __5269__
 
