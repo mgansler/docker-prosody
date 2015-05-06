@@ -13,6 +13,7 @@ docker run -d --name prosody -p 5222:5222 -p 5269:5269 <tag>
 ## Ports ##
 
 This image exposes the following ports to the docker host:
+
 * __5222__
 * __5269__
 
