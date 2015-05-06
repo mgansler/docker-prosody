@@ -7,15 +7,13 @@ COPY assets/ /assets
 RUN 	echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | tee -a /etc/apt/sources.list \
 	&& apt-key add /assets/prosody-debian-packages.key \
 	&& apt-get update \
-	&& apt-get install --yes ca-certificates prosody-0.10 lua-zlib lua-dbi-mysql \
+	&& apt-get install --yes ca-certificates prosody-0.10 lua-zlib lua-dbi-postgresql \
 	&& apt-get install --yes --no-install-recommends mercurial \
 	&& service prosody stop \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 WORKDIR /usr/lib/
 RUN hg clone https://code.google.com/p/prosody-modules/
-WORKDIR /usr/lib/prosody-modules
-RUN hg backout -r ad6694f7b13c
 
 VOLUME ["/etc/prosody"]
 VOLUME ["/var/lib/prosody"]
