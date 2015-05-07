@@ -24,5 +24,5 @@ RUN	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 VOLUME ["/etc/prosody"]
 
-EXPOSE 5222 5269
+EXPOSE 5222 5269 5280
 CMD [ "prosodyctl", "start" ]
