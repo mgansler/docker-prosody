@@ -7,7 +7,7 @@ COPY assets/ /assets
 RUN 	echo deb http://packages.prosody.im/debian jessie main | tee -a /etc/apt/sources.list \
 	&& apt-key add /assets/prosody-debian-packages.key \
 	&& apt-get update \
-	&& apt-get install --yes ca-certificates prosody-0.10 lua-zlib lua-dbi-postgresql lua-dbi-mysql \
+	&& apt-get install --yes ca-certificates prosody-0.10=1nightly131-1~jessie lua-zlib lua-dbi-postgresql lua-dbi-mysql \
 	&& service prosody stop \
     	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
