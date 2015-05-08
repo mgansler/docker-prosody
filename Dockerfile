@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD	http://packages.prosody.im/debian/pool/main/p/prosody-0.10/prosody-0.10_1nightly133-1~jessie_amd64.deb /tmp/
 
-RUN	apt-get update && apt-get install --yes \
+RUN	apt-get update && apt-get install --yes --no-install-recommendes \
 	lua5.1 \
 	lua-dbi-mysql \
 	lua-dbi-postgresql \
@@ -16,7 +16,7 @@ RUN	apt-get update && apt-get install --yes \
 	libidn11 \
 	liblua5.1-expat0 \
 	liblua5.1-filesystem0 \
-	ca-certificates
+	openssl
 
 RUN	dpkg -i /tmp/prosody-0.10_1nightly*~jessie_amd64.deb && service prosody stop
 
@@ -24,5 +24,5 @@ RUN	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 VOLUME ["/etc/prosody"]
 
-EXPOSE 5222 5269 5280
+EXPOSE 5222 5269 5280 5281
 CMD [ "prosodyctl", "start" ]
