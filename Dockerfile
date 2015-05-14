@@ -13,5 +13,5 @@ RUN 	echo deb http://packages.prosody.im/debian jessie main | tee -a /etc/apt/so
     
 VOLUME ["/etc/prosody"]
 
-EXPOSE 5222 5269
+EXPOSE 5222 5269 5280 5281
 CMD [ "prosodyctl", "start" ]
