@@ -3,7 +3,7 @@ MAINTAINER martin@martingansler.de
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD	http://packages.prosody.im/debian/pool/main/p/prosody-0.10/prosody-0.10_1nightly143-1~jessie_amd64.deb /tmp/
+ADD	http://packages.prosody.im/debian/pool/main/p/prosody-0.10/prosody-0.10_1nightly146-1~jessie_amd64.deb /tmp/
 
 RUN	apt-get update && apt-get install --yes --no-install-recommends \
 	lua5.1 \
