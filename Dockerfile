@@ -16,11 +16,9 @@ RUN	apt-get update && apt-get install --yes --no-install-recommends \
 	libidn11 \
 	liblua5.1-expat0 \
 	liblua5.1-filesystem0 \
-	openssl
-
-RUN	dpkg -i /tmp/prosody-0.10_1nightly*~jessie_amd64.deb && service prosody stop
-
-RUN	apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	openssl \
+	&& dpkg -i /tmp/prosody-0.10_1nightly*~jessie_amd64.deb && service prosody stop \
+	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 VOLUME ["/etc/prosody"]
 
