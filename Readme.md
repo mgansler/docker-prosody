@@ -41,7 +41,7 @@ This image exposes the following ports to the docker host:
 
 The configuration file `prosody.cfg.lua` needs to include the following lines:
 ```lua
-pidfile = "/run/prosody/prosody.pid" -- prosody doesn't start when it can't write to the directory
+pidfile = "/run/prosody/prosody.pid"; -- prosody doesn't start when it can't write to the directory
 deamonize = false;
 log = {
     info = "*console"; -- change to debug for more information
