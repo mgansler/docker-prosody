@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER martin@martingansler.de
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    PROSODY_VERSION="0.10_1nightly148-1"
+    PROSODY_VERSION="0.10_1nightly149-1"
 
 ADD	http://packages.prosody.im/debian/pool/main/p/prosody-0.10/prosody-$PROSODY_VERSION~jessie_amd64.deb /tmp/
 
